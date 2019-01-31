@@ -1,0 +1,93 @@
+<html>
+<head>
+    <title>Cat_mouse</title>
+</head>
+<body>
+<script>
+    var Mouse = function (name,weight,speed)
+    {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+
+        this.setHello = function ()
+        {
+            document.write('chit chit ta la : '+this.name+' chit chit<br>');
+        };
+        this.getWeight = function()
+        {
+            return this.weight;
+        }
+        this.getSpeed = function ()
+        {
+            return this.speed;
+        };
+        this.decrease = function ()
+        {
+            this.weight--;
+        }
+        this.liveOrDie = function ()
+        {
+            if (this.weight<this.weight/2)
+            {
+                document.write('a\' a\'<br>');
+            }
+        };
+    }
+    var Cat = function (name,weight,speed)
+    {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.mouse = new Mouse();
+
+        this.setHello = function()
+        {
+            document.write('meao <br>');
+        };
+        this.getWeight = function ()
+        {
+            return this.weight;
+        };
+        this.eat = function ()
+        {
+            this.weight ++;
+            document.write('1 mieng<br>');
+        };
+        this.maxSpeed= function ()
+        {
+            this.speed*2;
+            document.write('tang toc<br>');
+
+        }
+        this.getSpeed = function()
+        {
+            return this.speed;
+        };
+    }
+    var mouse = new Mouse('Micky',50,40);
+    mouse.setHello();
+    var cat = new Cat('Tom',60,30);
+    cat.setHello();
+    mouse.getSpeed();
+    mouse.getWeight();
+    cat.getSpeed();
+    cat.getWeight();
+        
+    function miceMouse()
+    {
+        
+        for (i=0;i<=30;i++)
+        {
+            cat.eat();
+            mouse.decrease();
+            if(cat.speed < mouse.speed)
+            {
+                cat.maxSpeed();
+            }
+        }
+    }
+    miceMouse();
+</script>
+</body>
+</html>
